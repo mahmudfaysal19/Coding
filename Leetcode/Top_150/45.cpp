@@ -18,6 +18,7 @@ using namespace std;
         return trgt;
     }
 
+    
     int main(){
         int xx;
         vector<int>nums;
