@@ -18,21 +18,21 @@ using namespace std;
         return trgt;
     }
 
-    
+
     int main(){
-        int xx;
-        vector<int>nums;
-        for(int i=0; i<5; i++){
-            cin>>xx;
-            nums.push_back(xx);
+        int jumps = 0;
+        int currEnd = 0;
+        int farthest = 0;
+
+        int nums[]={3,0,5,1,2,3,3,1,0,12};
+        for (int i = 0; i < 10 - 1; i++) {
+            farthest = max(farthest, i + nums[i]);
+
+            // when we reach the end of current jump range
+            if (i == currEnd) {
+                jumps++;
+                currEnd = farthest; // update new range end
+            }
         }
-    
-        
-        int cnt = 0, n = nums.size();
-        int cur_indx = 0;
-        while(cur_indx != n-1){
-            cur_indx = loop(nums, cur_indx);
-            cnt++;
-        }
-        cout<<cnt<<endl;
+        cout<<jumps<<endl;
     }
